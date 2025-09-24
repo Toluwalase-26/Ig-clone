@@ -1,59 +1,252 @@
-*{
-     margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body{
-    font-family: cursive;
-    background: #f8f8f8;
-    text-align:left;
-    display: flex;
+
+body {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-.login-container {
-  width: 350px;
-  text-align: center;
-}
-.login-box {
-  background: #fff;
-  border: 1px solid #dbdbdb;
-  padding: 30px;
-  margin-bottom: 10px;
-}
-.login-box input {
-  width: 100%;
-  padding: 10px;
-  margin: 6px 0;
-  border: 1px solid #dbdbdb;
-  background: #fafafa;
-  border-radius: 4px;
+  min-height: 100vh;
 }
 
-.login-box button {
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; }
+
+.login-box,
+.signup-box {
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  padding: 40px 40px 20px;
+  width: 350px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); 
+  margin-bottom: 16px;
+}
+
+.login-box input {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: #0095f6;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background-color: #fafafa;
+  font-size: 15px;
+  transition: border 0.2s;
+}
+
+.login-box input:focus {
+  border: 1.5px solid #0095f6;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  background-color: #0095f6;
+  border: none;
+  border-radius: 5px;
   color: #fff;
   font-weight: bold;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
 }
-h1{
-    color: #000000;
+
+.btn:hover {
+  background-color: #007ac1;
 }
-#feed{
-    max-width: 400px;
-    margin: 20px auto;
-    text-align: left;
+
+.fb-btn {
+  background-color: #385185;
 }
-.post{
-    background: white;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 15px;
+
+.fb-btn:hover {
+  background-color: #2d3f6a;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 18px 0;
+  font-size: 14px;
+  color: #8e8e8e;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 10px;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 10px;
+}
+
+.forgot-password {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.forgot-password a {
+  color: #385185;
+  text-decoration: none;
+}
+
+.signup-box {
+  padding: 20px;
+  font-size: 15px;
+}
+
+.signup-box a {
+  color: #0095f6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #8e8e8e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .login-box,
+  .signup-box {
+    width: 95vw;
+    padding: 20px 10px;
+  }
+}
+/* --- Instagram Home Page Styles --- */
+
+body.home-page {
+  background: #181818;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: block; /* override flex for home page */
+  align-items: unset;
+  justify-content: unset;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #232323;
+  padding: 16px 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.logo {
+  font-family: 'Pacifico', cursive, sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.nav-icons span {
+  font-size: 1.5rem;
+  margin-left: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-icons span:hover {
+  color: #0095f6;
+}
+
+.stories {
+  display: flex;
+  gap: 16px;
+  padding: 24px 32px;
+  background: #232323;
+  border-bottom: 1px solid #222;
+}
+
+.story {
+  background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.story:hover {
+  transform: scale(1.08);
+}
+
+.post {
+  background: #232323;
+  margin: 32px auto;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  border: 2px solid #ee2a7b;
+}
+
+.username {
+  font-weight: bold;
+  color: #fff;
+}
+
+.post-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.post-footer {
+  padding: 16px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 0 8px 0;
+  color: #aaa;
+  font-size: 13px;
+  background: #181818;
+  margin-top: 32px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar, .stories {
+    padding: 12px 8px;
+  }
+  .post {
+    max-width: 98vw;
+    margin: 16px auto;
+  }
 }
